@@ -4,7 +4,6 @@ package pl.asev.todoapi.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -23,6 +22,9 @@ public class ToDoItem {
     Boolean status;
     @Column(name = "item_created_date")
     Date createdItem;
+    @Column(name = "item_priority")
+    String priority;
+
 
     public ToDoItem() {
     }

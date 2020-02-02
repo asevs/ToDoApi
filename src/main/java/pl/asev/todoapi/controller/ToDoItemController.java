@@ -61,6 +61,16 @@ public class ToDoItemController {
 
     }
 
+    @RequestMapping(value = "/update",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ToDoItem updateToDoItem(@RequestBody ToDoItem toDoItem) {
+        return toDoItemRepository.save(toDoItem);
+
+
+    }
+
     @RequestMapping(value = "/delete/all")
     public void deleteAllItems() {
         toDoItemRepository.deleteAll();
