@@ -1,6 +1,5 @@
 package pl.asev.todoapi.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,24 +10,19 @@ import java.util.Date;
 @Data
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Table(name = "item")
+@Table(name = "to_do_list")
 @NoArgsConstructor
-public class ToDoItem {
-
+public class ToDoList {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "item_id")
+    @Column(name = "list_id")
     private Long id;
-    @Column(name = "item_content")
-    private String content;
-    @Column(name = "item_status")
+    @Column(name = "user_id")
+    private Long user;
+    @Column(name = "list_status")
     private Boolean status;
-    @Column(name = "item_created_date")
+    @Column(name = "lisr_created_date")
     private Date createdItem;
-    @Column(name = "item_priority")
-    private String priority;
-
 
 
 }
-
