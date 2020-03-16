@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,12 +18,16 @@ public class ToDoList {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "list_id")
     private Long id;
-    @Column(name = "user_id")
-    private Long user;
     @Column(name = "list_status")
     private Boolean status;
-    @Column(name = "lisr_created_date")
-    private Date createdItem;
+    @Column(name = "list_update_date")
+    private Date updateList;
+    @Column(name = "list_title")
+    private String title;
+
+    @OneToMany
+    @JoinTable(name = "to_do_list", joinColumns = @JoinColumn(name = "list_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private List<ToDoItem> toDoItems;
 
 
 }

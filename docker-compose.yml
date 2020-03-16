@@ -1,0 +1,6 @@
+version: '3'                          # wersja docker compose
+services:                             # serwisy jakie sa zarządzane przez bierzący docker compose
+  api:                                # nazwa serwisu (dowolna, unikalna)
+    build: ./Dockerfile   # sciezka do pliku Dockerfile dla tego kontenera
+    ports:
+    - "8080:8080"

@@ -1,5 +1,6 @@
 package pl.asev.todoapi.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.asev.todoapi.model.ToDoItem;
 import pl.asev.todoapi.model.ToDoItemRepository;
+import pl.asev.todoapi.model.ToDoListRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -22,14 +24,19 @@ public class ToDoItemController {
     @Autowired
     ToDoItemRepository toDoItemRepository;
 
+
     @Autowired
     ObjectMapper objectMapper;
 
-    @RequestMapping("/getAll")
+//
+
+        @RequestMapping("/getAll")
     public ResponseEntity getAllItems() throws JsonProcessingException {
         List<ToDoItem> toDoItems = (List<ToDoItem>) toDoItemRepository.findAll();
         return ResponseEntity.ok(objectMapper.writeValueAsString(toDoItems));
     }
+
+
 
     @RequestMapping(value = "/{id}")
     public Optional<ToDoItem> findById(@PathVariable(value = "id", required = true) Long id) {

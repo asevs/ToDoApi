@@ -2,11 +2,15 @@ package pl.asev.todoapi.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 
 @Data
 @Entity
@@ -27,6 +31,9 @@ public class ToDoItem {
     private Date createdItem;
     @Column(name = "item_priority")
     private String priority;
+
+
+
 
 
 
